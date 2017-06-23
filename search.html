@@ -1,0 +1,82 @@
+---
+layout: default
+---
+<style>
+  .search-wrapper {
+    text-align: center;
+  }
+  .search {
+    width: 16em;
+    margin: 10px auto;
+    border-radius: 3px;
+    border: solid 1px #ccc;
+    padding: 8px 16px;
+    font-size: 14px;
+    outline: none;`
+  }
+  .search-wrapper button {
+    border-radius: 2px;
+    border: solid 1px #dad8d8;
+    height: 33px;
+    vertical-align: middle;
+    margin-left: 20px;
+    outline: none;
+    background: #ececec;
+  }
+  .search-wrapper button:hover {
+    background: #e2e2e2;
+    cursor: pointer;
+  }
+  .search-wrapper button img {
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: -39%;
+  }
+  .search:focus {
+    box-shadow: 0 0 6px 1px #e0dddd;
+  }
+  #search-results {
+    padding: 0;
+    margin: 40px 0;
+    list-style: none;
+  }
+  #search-results li p {
+    word-break: break-all;
+  }
+  #search-results li + li {
+    margin-top: 30px;
+    border-top: solid 1px #f4f4f4;
+    padding-top: 30px;
+  }
+  .google-it {
+    font-size: 25px;
+    margin-left: 17px;
+    text-decoration: none;
+  }
+  .google-it img {
+    height: 1em;
+  }
+</style>
+<div class='search-wrapper'>
+  <input class='search' type="text" id="search-box" placeholder="input something & enter to search...">
+  <button google><img src='https://zhoukekestar.github.io/notes/assets/google.svg' />Google</button>
+  <button baidu><img src='https://zhoukekestar.github.io/notes/assets/baidu.svg' />Baidu</button>
+</div>
+
+<ul id="search-results" style='margin-top: 40px;'></ul>
+<script>
+  window.store = {
+    {% for post in site.posts %}
+       "{{ post.url | slugify }}": {
+         "title": "{{ post.title | xml_escape }}",
+         "author": "{{ post.author | xml_escape }}",
+         "category": "{{ post.category | xml_escape }}",
+         "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+         "url": "{{ post.url | xml_escape }}"
+       }
+       {% unless forloop.last %},{% endunless %}
+     {% endfor %}
+  };
+</script>
+<script src="https://zhoukekestar.github.io/notes/html/search/lunr.js"></script>
+<script src="https://zhoukekestar.github.io/notes/html/search/search.js"></script>

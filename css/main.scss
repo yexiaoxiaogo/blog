@@ -1,0 +1,309 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   14px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #000;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+// Minima also includes a mixin for defining media queries.
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+
+// Import partials from the `minima` theme.
+@import "minima";
+
+// Bascial CSS
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0.5em 0;
+  font-family: inherit;
+  font-weight: 500;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2em;
+}
+
+h2, .h2 {
+  font-size: 1.8em;
+}
+
+h3, .h3 {
+  font-size: 1.6em;
+}
+
+h4, .h4 {
+  font-size: 1.4em;
+}
+
+h5, .h5 {
+  font-size: 1.2em;
+}
+
+h6, .h6 {
+  font-size: 1em;
+}
+
+pre,
+code {
+  font-family: $base-font-family;
+}
+
+.highlighter-rouge .highlight code {
+    font-family: monospace;
+}
+
+.post-tag {
+  background: #f0f0f0;
+  color: #828282;
+  font-size: 12px;
+  border-radius: 21px;
+  margin-left: 5px;
+  margin-right: 0;
+  padding: 5px 12px;
+  line-height: 1.1em;
+  text-decoration: none;
+  vertical-align: baseline;
+  display: inline-block;
+}
+a.post-tag:hover {
+  background: #e0e0e0;
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+}
+table td, table th {
+  border: solid 1px #ccc;
+  padding: 8px;
+}
+table tr:odd {
+  background: #f00;
+}
+table tbody tr:nth-child(2n + 1) {
+  background: rgba(215, 212, 212, 0.35);
+}
+
+a.edit-page {
+  float: right;
+  margin-top: 15px;
+}
+
+a.edit-page:before {
+  content:'';
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEUAAAAsLCwgICArKysrKysrKysrKyspKSkrKyssLCwoKCgsLCwqKiosLCwrKysrKyssLCxoW5+WAAAAEHRSTlMA8BAw0KBgUODAIICQQHCw6U6nfQAAANhJREFUOMvFk8kWwyAIRWVyzMD/f21B243WdNm3IYencCFJ+J/qDz8qPfqiBR5qYAEKzLjziZnsVL43/gnQLxMcGzxBLv6UNH7xD89WkM0oeMPZMeyYn+N5O4bnNtnlZBDTIJ9M8gYHNJUVz8OlnT7rNeONjPT2KJAmPM+MJXrgTJM/MsRcLSx43hH7EouHCIILn5OnQdm0hVlFCFqob7x1w6TVisQBY5SLRLyyO5QZVx/HCxDA5HirrvIZteOtyqe56WDV+NVP2U2427n5CouWlp7+Awp/1gtSFwXSGjLLuwAAAABJRU5ErkJggg==);
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  background-size: contain;
+  margin-right: 8px;
+  vertical-align: text-bottom;
+}
+
+/********************************
+*
+*  COMMENTS
+*
+********************************/
+
+#comments {
+  border-top: solid 1px #e2e2e2;
+  margin-top: 100px;
+  padding-top: 40px;
+}
+
+#comments > h2:before {
+  content: '';
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAM1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjBUbJAAAAEHRSTlMAf8BAIBCw4NBQMPCgT5BgUmVKUgAAAH9JREFUOMvN0MESwiAMRdEHSUBoq+//v1aa0XHsAK6snkWyyF0F57AtdG0Gp5kDWT1IHEoeLIyGnkT6JgO6yqdAzg6ir9CmX+IXgiqigPo0kboHf/eHjut7UMJBIi+vQCI7yjPQxJbHg7XiEeT9LBhhk2/AJFiCYRashinFj90BKcsMgTODyOUAAAAASUVORK5CYII=);
+  height: 1em;
+  width: 1em;
+  background-size: contain;
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: bottom;
+}
+#comments a.btn-leave-comment {
+  border: solid 1px #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: block;
+  width: 9em;
+  margin: 50px auto 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#comments a.btn-leave-comment:hover {
+  background: #f4f4f4;
+}
+
+.comment {
+  position: relative;
+  color: black;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0px;
+  width: 100%;
+  padding-left: 60px;
+  box-sizing: border-box;
+}
+
+.comment .commentgravatar {
+  position: absolute;
+  left: 0;
+}
+.comment .commentgravatar img {
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+}
+.comment .commentheader {
+  border: 1px solid #d1d5da;
+  padding-left: 20px;
+  background-color: #f6f8fa;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.commentheader:before {
+  content: '';
+  position: absolute;
+  left: 44px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(209, 213, 218) transparent transparent;
+}
+.commentheader:after {
+  content: '';
+  position: absolute;
+  left: 45px;
+  top: 10px;
+  border: solid 8px;
+  border-color: transparent rgb(246, 248, 250) transparent transparent;
+}
+
+.comment .commentheader a:link {
+  text-decoration: none;
+}
+
+.comment .commentheader a:hover {
+  border-bottom:1px solid;
+}
+
+
+.comment .commentheader .commentuser {
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.comment .commentheader .commentdate {
+  color: #777;
+  font-size: 11px;
+  line-height: 33px;
+}
+
+.comment .commentbody {
+  color: #333;
+  display: block;
+  overflow: visible;
+  padding: 1em;
+  word-wrap: break-word;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  font-size: 14px;
+  border-radius: 0 0 5px 5px;
+}
+
+.comment .commentbody p {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.comment .commentbody pre {
+  background-color: rgba(27,31,35,0.05);
+  padding: 0 .4em;
+}
+
+.comment .commentbody pre code {
+}
+
+.comment .commentbody code {
+  background-color: rgba(27,31,35,0.05);
+  font-size: 85%;
+  padding: 0 .2em;
+}
+/* post style */
+main.page-content .post-content a,
+.comment .commentbody a {
+  text-decoration: underline;
+}
+
+main.page-content .post-content {
+  line-height: 2em;
+}
+main.page-content .post-content .highlight .c1,
+main.page-content .post-content .highlight .cm {
+  font-style: normal;
+}
+
+/* pagination */
+.pagination {
+  font-size: 0;
+  text-align: right;
+}
+.pagination *:first-child {
+  border-left: solid 1px #e8e8e8;
+  border-radius: 5px 0 0 5px;
+}
+.pagination *:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.pagination a,
+.pagination em,
+.pagination span {
+  font-size: 14px;
+  min-width: 1.2em;
+  display: inline-block;
+  border: solid 1px #e8e8e8;
+  padding: 5px 8px;
+  text-align: center;
+  border-left: none;
+  background: #f6f6f6;
+  font-style: normal;
+}
+.pagination a:hover,
+.pagination em {
+  background: #fdfdfd;
+}

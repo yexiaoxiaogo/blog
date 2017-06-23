@@ -1,0 +1,50 @@
+---
+layout: page
+title: Tags
+---
+
+<div class="tags-expo">
+  <style media="screen">
+    .post-content h2 {
+      font-size: 24px;
+      margin: 40px 0 10px;
+    }
+    a.post-tag {
+      margin-bottom: 5px;
+    }
+    a.post-title {
+      font-size: 16px;
+      text-decoration: none;
+    }
+    small.post-date {
+      font-size: 12px;
+      color: #333;
+      margin-left: 5px;
+    }
+    main.page-content .post-content a.post-tag,
+    main.page-content .post-content .tags-expo-posts a {
+      text-decoration: none;
+    }
+  </style>
+  <div class="tags-expo-list">
+    {% for tag in site.tags %}
+    <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="tags-expo-section">
+    {% for tag in site.tags %}
+    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+    <ul class="tags-expo-posts">
+      {% for post in tag[1] %}
+        <li>
+          <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+            {{ post.title }}
+            <small class="post-date">{{ post.date | date_to_string }}</small>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+</div>

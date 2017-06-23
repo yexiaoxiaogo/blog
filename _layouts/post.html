@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+
+      {% if page.tags %}
+        {% for tag in page.tags %}
+          <a href='{{site.baseurl}}/tags#{{ tag }}' class="post-tag">{{ tag }}</a>
+        {% endfor %}
+      {% endif %}
+
+      {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <a class='edit-page' href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>
+</article>
+
+{% if page.commentIssueId %}
+  <div id="comments">
+    <h2>Comments</h2>
+    <div class='comments'></div>
+    <a class='btn-leave-comment' href="https://github.com/yexiaoxiaogo/blog/issues/{{page.commentIssueId}}">Leave a comment</a>
+  </div>
+  <script src='https://cdn.bootcss.com/es6-promise/4.1.0/es6-promise.auto.min.js'></script>
+  <script src='https://cdn.bootcss.com/fetch/2.0.3/fetch.min.js'></script>
+  <script src='https://cdn.bootcss.com/timeago.js/3.0.0/timeago.min.js'></script>
+  <script type="text/javascript">
+
+      function loadComments (data) {
+        var comments = document.querySelector('#comments .comments');
+        data.forEach(function(item) {
+          var cuser = item.user.login;
+          var cuserlink = "https://www.github.com/" + item.user.login;
+          var clink = "https://github.com/yexiaoxiaogo/blog/issues/{{page.commentIssueId}}#issuecomment-" + item.url.substring(item.url.lastIndexOf("/") + 1);
+          var cbody = item.body_html;
+          var cavatarlink = item.user.avatar_url;
+          var cdate = new timeago().format(item.created_at);
+
+          comments.innerHTML += (
+              "<div class='comment'>"
+              + "<div class='commentgravatar'>"
+                + "<img src='" + cavatarlink + "'>"
+              + "</div>"
+              + "<div class='commentheader'>"
+                + "<a class='commentuser' href='" + cuserlink + "'>" + cuser + "</a><a class='commentdate' href='" + clink + "'>" + cdate + "</a>"
+              + "</div>"
+              + "<div class='commentbody'>" + cbody + "</div></div>");
+        })
+
+        // Did you know? Tell reader that she/he can leave a message.
+        if (data.length === 0) {
+          comments.innerHTML = '<div class="comment"><div class="commentgravatar"><img src="https://avatars0.githubusercontent.com/u/7157346?v=3"></div><div class="commentheader"><a class="commentuser" href="https://www.github.com/zhoukekestar">zhoukekestar</a><a class="commentdate" href="javascript:;">just now</a></div><div class="commentbody"><p>No comments left so far. You can leave one for this.</p></div></div>';
+        }
+      }
+
+      fetch('https://api.github.com/repos/zhoukekestar/jekyll-template/issues/{{page.commentIssueId}}/comments', {
+        headers: {
+          Accept: "application/vnd.github.full+json"
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (body) {
+        loadComments(body);
+      })
+  </script>
+{% endif %}
