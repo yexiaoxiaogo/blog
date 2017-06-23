@@ -14,3 +14,5 @@ github里面新建一个blog项目用来管理学习笔记
 在此文件夹下，可以新建文件夹用来管理自己的笔记
 在_posts里面新建一个md格式的文件，用sublime打开写笔记
 bolg目录可以直接拖到sublime里面，在sublime的_posts里面新建
+
+保存后，github上update and  post（push origin）
