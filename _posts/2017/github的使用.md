@@ -6,7 +6,7 @@ tags: [blog,github，sublime]
 commentIssueId: 1
 ---
 
-##blog项目里面的笔记
+## blog项目里面的笔记
 
 github里面新建一个blog项目用来管理学习笔记
 新建会有一个自己选择的目录，目录文件夹名称是项目名称
