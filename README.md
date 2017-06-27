@@ -1,6 +1,61 @@
 # jekyll-template
 Template for Blog based on jekyll
 
+# JDBC
+```java
+package io.github.yexiaoxiaogo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class HelloWorld {
+
+	// JDBC 驱动名及数据库 URL
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+    static final String DB_URL = "jdbc:mysql://localhost:3306/yexiaoxiao";
+ 
+    // 数据库的用户名与密码，需要根据自己的设置
+    static final String USER = "root";
+    static final String PASS = "123456";
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("hello world");
+		Connection conn = null;
+		Statement stmt =null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			
+			stmt = conn.createStatement();
+			String sql;
+			sql = "select id,name from person";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()){
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				
+				System.out.println("id:"+ id);
+				System.out.println("name:"+ name );
+				System.out.println("\n");
+				
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+
+	}
+
+}
+
+```
 # How-to
 * Base Config: `_config.yml`
 
