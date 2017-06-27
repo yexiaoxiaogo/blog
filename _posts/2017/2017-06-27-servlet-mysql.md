@@ -1,6 +1,8 @@
 # 数据库远程连接的问题
-* 高级安全Windows防火墙新建入站规则不行
-* 修改配置文件中连接MYsql地址，配置文件没有找到[配置文件修改](http://www.cnblogs.com/nju2014/p/5528667.html)
+
+* 先起服务器，xampp
+* 再起客户端，navicat for mysql
+* 再用spring写数据库
 # 下载的jar包放哪里了
 
 # 访问数据库创建的是什么项目
