@@ -1,8 +1,27 @@
-# 数据库远程连接的问题
+# Navicat for MyAQL
 
-* 先起服务器，xampp
+## 数据库服务器未开启时，连接客户端会出现不能连接数据库的问题
+    打开数据库客户端Navicat，连接数据库，提示以下错误
+![qq 20170628103239](https://user-images.githubusercontent.com/20008525/27618138-234bb464-5bed-11e7-9a0b-7f1e7c85cc55.png)
+
+这是因为数据库服务器没有开启的原因。解决方法如下：
+* 先起服务器，xampp上开启MYSQL
 * 再起客户端，navicat for mysql
-* 再用spring写数据库
+
+## 使用数据库客户端备份、还原数据库数据
+
+### 数据库表的备份
+
+* 转储成SQL文件到本地
+
+![qq 20170628104146](https://user-images.githubusercontent.com/20008525/27618424-fd0a4b9c-5bee-11e7-8964-fc25cda7661b.png)
+
+
+### 数据库表的还原
+
+* 本地还原：在数据库下面，表，右击，选择运行SQL文件，选择本地SQL文件的地址，点击开始，然后刷新表。可以看到这个数据表被导入该数据库
+
+
 # 下载的jar包放哪里了
 
 # 访问数据库创建的是什么项目
@@ -22,3 +41,36 @@ jdbc:mysql://[host1][:port1][,[host2][:port2]]...[/[database]] »
 jdbc:mysql://[主机名][:端口号][,[主机名2][:端口号2]]...[/[数据库名称]] »
 [?属性名字1=属性值1[&propertyName2=propertyValue2]...]
 ```
+
+
+## 使用Navicat，查询，直接，修改，删除数据
+
+![_20170628154159](https://user-images.githubusercontent.com/20008525/27625878-a3168b94-5c18-11e7-802d-50c44020a959.png)
+
+
+## 使用JDBC，查询，增加，修改，删除数据
+
+这里使用的是MYSQL数据库，已经下载数据库服务器xampp和数据库客户端Navicat for MYSQL，开启服务器，连接数据库，建立一张数据表。这里有几个信息，包括连接数据库的URL（主机名，端口号，数据库名）和用户名，密码
+
+* [JDBC连接数据库的流程及其原理](http://blog.csdn.net/tanyunlong_nice/article/details/40743637)
+
+```
+1、在开发环境中加载指定数据库的驱动程序。例如，接下来的实验中，使用的数据库是mysql，所以需要去下载MySQL支持JDBC的驱动程序(最新的是：mysql-connector-java-5.1.18-bin.jar)；而开发环境是MyEclipse，将下载得到的驱动程序加载进开发环境中(具体示例的时候会讲解如何加载)。
+
+2、在Java程序中加载驱动程序。在Java程序中，可以通过 “Class.forName(“指定数据库的驱动程序”)” 方式来加载添加到开发环境中的驱动程序，例如加载MySQL的数据驱动程序的代码为：  Class.forName(“com.mysql.jdbc.Driver”)
+
+3、创建数据连接对象：通过DriverManager类创建数据库连接对象Connection。DriverManager类作用于Java程序和JDBC驱动程序之间，用于检查所加载的驱动程序是否可以建立连接，然后通过它的getConnection方法，根据数据库的URL、用户名和密码，创建一个JDBC Connection 对象。如：Connection connection =  DriverManager.geiConnection(“连接数据库的URL", "用户名", "密码”)。其中，URL=协议名+IP地址(域名)+端口+数据库名称；用户名和密码是指登录数据库时所使用的用户名和密码。具体示例创建MySQL的数据库连接代码如下：
+              Connection connectMySQL  =  DriverManager.geiConnection(“jdbc:mysql://localhost:3306/myuser","root" ,"root" );
+
+4、创建Statement对象：Statement 类的主要是用于执行静态 SQL 语句并返回它所生成结果的对象。通过Connection 对象的 createStatement()方法可以创建一个Statement对象。例如：Statement statament = connection.createStatement(); 具体示例创建Statement对象代码如下：
+             Statement statamentMySQL =connectMySQL.createStatement(); 
+
+5、调用Statement对象的相关方法执行相对应的 SQL 语句：通过execuUpdate()方法用来数据的更新，包括插入和删除等操作，例如向staff表中插入一条数据的代码：
+       statement.excuteUpdate( "INSERT INTO staff(name, age, sex,address, depart, worklen,wage)" + " VALUES ('Tom1', 321, 'M', 'china','Personnel','3','3000' ) ") ; 
+通过调用Statement对象的executeQuery()方法进行数据的查询，而查询结果会得到 ResulSet对象，ResulSet表示执行查询数据库后返回的数据的集合，ResulSet对象具有可以指向当前数据行的指针。通过该对象的next()方法，使得指针指向下一行，然后将数据以列号或者字段名取出。如果当next()方法返回null，则表示下一行中没有数据存在。使用示例代码如下：
+       ResultSet resultSel = statement.executeQuery( "select * from staff" );
+
+6、关闭数据库连接：使用完数据库或者不需要访问数据库时，通过Connection的close() 方法及时关闭数据连接。
+
+```
+
