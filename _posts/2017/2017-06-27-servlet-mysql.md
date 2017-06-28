@@ -54,6 +54,8 @@ jdbc:mysql://[主机名][:端口号][,[主机名2][:端口号2]]...[/[数据库�
 
 * [JDBC连接数据库的流程及其原理](http://blog.csdn.net/tanyunlong_nice/article/details/40743637)
 
+* [另外一种插入的写法](http://www.jb51.net/article/88300.htm)
+
 ```
 1、在开发环境中加载指定数据库的驱动程序。例如，接下来的实验中，使用的数据库是mysql，所以需要去下载MySQL支持JDBC的驱动程序(最新的是：mysql-connector-java-5.1.18-bin.jar)；而开发环境是MyEclipse，将下载得到的驱动程序加载进开发环境中(具体示例的时候会讲解如何加载)。
 
@@ -71,6 +73,18 @@ jdbc:mysql://[主机名][:端口号][,[主机名2][:端口号2]]...[/[数据库�
        ResultSet resultSel = statement.executeQuery( "select * from staff" );
 
 6、关闭数据库连接：使用完数据库或者不需要访问数据库时，通过Connection的close() 方法及时关闭数据连接。
+
+```
+
+* [JDBC连接(MySql)数据库步骤，以及查询、插入、删除、更新等十一个处理数据库信息的功能。](http://www.cnblogs.com/wuziyue/p/4827295.html)
+
+```
+主要内容：
+    JDBC连接数据库步骤。
+    一个简单详细的查询数据的例子。
+    封装连接数据库，释放数据库连接方法。
+    实现查询，插入，删除，更新等十一个处理数据库信息的功能。（包括事务处理，批量更新等）
+    把十一个功能都放在一起。
 
 ```
 
