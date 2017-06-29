@@ -89,3 +89,10 @@ jdbc:mysql://[主机名][:端口号][,[主机名2][:端口号2]]...[/[数据库�
 ```
 
 # 字符串拼接的用处
+
+## 使用JDBC，封装对象，通过对象进行增删改查操作
+
+* [DAO样例](https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm)
+
+
+* [MySQL数据库学习笔记（十一）----DAO设计模式实现数据库的增删改查（进一步封装JDBC工具类）](http://www.cnblogs.com/smyhvae/p/4059514.html)
