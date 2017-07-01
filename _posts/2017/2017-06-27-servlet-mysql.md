@@ -97,3 +97,16 @@ jdbc:mysql://[主机名][:端口号][,[主机名2][:端口号2]]...[/[数据库�
 
 
 * [MySQL数据库学习笔记（十一）----DAO设计模式实现数据库的增删改查（进一步封装JDBC工具类）](http://www.cnblogs.com/smyhvae/p/4059514.html)
+
+## Servlet的内容
+
+1.安装tomcat的时候，正常解压后tomcat8.0后，不能开启tomcat
+
+2.用xampp开启tomcat服务后，在WEB-INF下，新建一个.java文件，编译出问题了。
+
+3.在STS里面，新建dynamic web project，新建servlet后，添加的为什么是servlet库，而不是tomcat库？[我参考的这篇文章](https://www.javatpoint.com/creating-servlet-in-eclipse-ide)
+
+
+4.error pages里面是不是配置WEB.XML的
+
+5.运行程序后，显示了什么端口被占用？
