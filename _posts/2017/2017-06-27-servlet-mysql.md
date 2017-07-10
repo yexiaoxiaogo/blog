@@ -1,3 +1,10 @@
+---
+layout: post
+title: "servlet-mysql"
+date: 2017-07-07
+tags: [blog, ]
+commentIssueId: 7
+---
 # Navicat for MyAQL
 
 ## 数据库服务器未开启时，连接客户端会出现不能连接数据库的问题
