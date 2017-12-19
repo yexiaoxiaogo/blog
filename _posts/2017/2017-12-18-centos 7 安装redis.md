@@ -44,7 +44,7 @@ commentIssueId: 17
 
    ![image](https://user-images.githubusercontent.com/20008525/34104433-61988a8c-e42b-11e7-9273-23095e8a4160.png)
 
-4. 进入redis.config文件 进行配置
+4. 把redis.conf忘记复制到/etc目录下。进入redis.config文件 进行配置
 
    ```shell
    vim redis.conf
