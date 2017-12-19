@@ -9,7 +9,7 @@ commentIssueId: 17
 
 ## centos7下安装redis遇到的问题
 
-1. 下载压缩包 解压文件，这里我是直接下载压缩包，去解压，没有在线下载
+1. 下载压缩包 解压文件，这里我是直接下载压缩包[官网下载地址](https://redis.io/download)，去解压，没有在线下载
 
    ```shell
    $ wget http://download.redis.io/releases/redis-2.8.17.tar.gz
