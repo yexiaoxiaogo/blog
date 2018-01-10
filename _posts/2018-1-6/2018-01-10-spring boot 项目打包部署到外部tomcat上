@@ -1,0 +1,15 @@
+---
+layout: post
+title: "部署项目"
+date: 2018-01-10
+tags: [打包]
+commentIssueId: 23
+
+---
+
+
+[官方文档](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file)
+
+[打包配置]http://blog.csdn.net/wang124454731/article/details/74348186
+
+[导出war方法](https://jingyan.baidu.com/article/ab0b56309110b4c15afa7de2.html)
