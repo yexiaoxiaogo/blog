@@ -88,7 +88,12 @@ java -jar .\target\usercenter-server-0.0.1-SNAPSHOT.jar
 ```shell
 nohup java -jar .\target\usercenter-server-0.0.1-SNAPSHOT.jar &
 ```
-5. 如何重启
+这里会显示
+```shell
+ nohup: 忽略输入并把输出追加到"nohup.out"
+ ```
+ 这个不是报错，只是提示，后台执行程序的输出都被重定向到nohup.out文件，起到了log的作用。这里就已经后台运行启动了。
+5. 如何重启后台运行的jar：
 ```shell
 ps -ef|grep java 
 ##拿到对于Java程序的pid
