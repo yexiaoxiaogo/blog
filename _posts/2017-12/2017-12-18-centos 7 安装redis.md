@@ -104,6 +104,16 @@ commentIssueId: 17
    (empty list or set)
    ```
 
-   ​
+   ### 在断电后，重启服务器，redis进程还在，但是数据库客户端链接失败。
+   1. 重启服务器进程
+   2. 链接客户端，重新设置客户端的密码.通过命令进行设置密码
+   ```shell
+   redis 127.0.0.1:6379[1]> config set requirepass my_redis  
+    OK  
+    redis 127.0.0.1:6379[1]> config get requirepass  
+    1) "requirepass"  
+    2) "my_redis"  
+    ```
+
 
    ​
