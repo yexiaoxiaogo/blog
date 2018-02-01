@@ -44,7 +44,7 @@ commentIssueId: 17
 
    ![image](https://user-images.githubusercontent.com/20008525/34104433-61988a8c-e42b-11e7-9273-23095e8a4160.png)
 
-4. 把redis.conf忘记复制到/etc目录下。进入redis.config文件 进行配置
+4. 把redis.conf文件复制到/etc目录下。进入redis.config文件 进行配置
 
    ```shell
    vim redis.conf
@@ -81,6 +81,11 @@ commentIssueId: 17
    最后配置完成后，按ESC 退出插入状态，再输入**:** 冒号，直接输入**x** 即可保存退出
 
 5. 配置完成即可启动**./redis-server** 和**./redis-cli**
+    ```shell
+     ./redis-server
+     # 上面这种启动 redis使用的是默认配置，这里要通过启动参数告诉redis使用指定配置
+     ./redis-server redis.config
+    ```
 
 6. 启动redis-cli后，登陆时要给定密码
 
@@ -109,8 +114,15 @@ commentIssueId: 17
    ``` shell
     #检测后台进程是否存在  
     ps -ef |grep redis 
+    #杀死进程
     kill -9 pid
+    #启动
+    /usr/local/bin/redis-server /etc/redis/redis.conf
+    #查看启动
+    ps -ef |grep redis 
     ```
+
+
    2. 链接客户端，重新设置客户端的密码.通过命令进行设置密码
    ```shell
    redis 127.0.0.1:6379[1]> config set requirepass my_redis  
