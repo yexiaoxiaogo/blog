@@ -122,3 +122,23 @@ kill -9 30768
 ${MYSQL_USERNAME:root}
 ···
 使用环境变量里面的MYSQL_USERNAME的值，如果没有设置，默认值为root
+
+[设置环境变量](https://www.jianshu.com/p/ac2bc0ad3d74)
+[vim 命令](http://caibaojian.com/vim.html)
+
+加入根目录/etc,打开profile文件
+```shell
+[root@Centos7 /]# ls
+bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@Centos7 etc]# vi profile
+```
+在文件的最后添加,按`a` 在当前位置后插入
+```shell
+export eureka.instance.hostname=47.97.184.82
+```
+`q!` 不保存文件，强制退出vi
+`wq!` 强制保存文件，并退出vi
+
+```shell
+env  //查看所有的变量值
+```
