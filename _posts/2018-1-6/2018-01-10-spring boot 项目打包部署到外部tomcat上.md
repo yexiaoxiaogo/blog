@@ -134,7 +134,7 @@ bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  
 ```
 在文件的最后添加,按`a` 在当前位置后插入
 ```shell
-export eureka.instance.hostname=47.97.184.82
+export MYSQL_HOST=47.97.184.82
 ```
 `q!` 不保存文件，强制退出vi
 `wq!` 强制保存文件，并退出vi
