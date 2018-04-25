@@ -142,3 +142,26 @@ export MYSQL_HOST=47.97.184.82
 ```shell
 env  //查看所有的变量值
 ```
+
+
+## 公司shop项目打包
+
+
+
+```shell
+[root@Centos7 ~]# cd /home/tomcat/apache-tomcat-default/
+[root@Centos7 apache-tomcat-default]# cd webapps2         //加入这个文件夹下
+[root@Centos7 webapps2]# ls
+ROOT  shoptesting  shoptesting.war  upload
+[root@Centos7 webapps2]# rm shoptesting.war  -rf         //删除这个war包
+[root@Centos7 webapps2]# ls
+ROOT  shoptesting  upload
+[root@Centos7 webapps2]# ls
+ROOT  upload                                //已经做了配置，shoptesting会自动删除
+[root@Centos7 webapps2]# rz
+                            // rz这个是传输命令，war包导出文件名一定要是shoptesting
+[root@Centos7 webapps2]# ls  // 已经配置自动发布
+ROOT  shoptesting  shoptesting.war  upload
+
+
+```
