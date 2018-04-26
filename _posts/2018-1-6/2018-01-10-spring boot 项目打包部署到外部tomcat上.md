@@ -149,28 +149,27 @@ env  //查看所有的变量值
 
 
 ```shell
-[root@Centos7 ~]# cd /home/tomcat/apache-tomcat-default/
-[root@Centos7 apache-tomcat-default]# cd webapps2         //加入这个文件夹下
+
+Welcome to aliyun Elastic Compute Service!
+
+[root@Centos7 ~]# cd /home/tomcat/apache-tomcat-default/webapps2  //进入这个文件夹下
 [root@Centos7 webapps2]# ls
 ROOT  shoptesting  shoptesting.war  upload
-[root@Centos7 webapps2]# rm shoptesting.war  -rf         //删除这个war包
-[root@Centos7 webapps2]# ls
-ROOT  shoptesting  upload
-[root@Centos7 webapps2]# ls
-ROOT  upload                                //已经做了配置，shoptesting会自动删除
-[root@Centos7 webapps2]# rm ROOT/ -rf
+[root@Centos7 webapps2]# rm shoptesting.war -rf      //删除这个war包，已经做了配置，shoptesting文件夹会一起删除
+[root@Centos7 webapps2]# rm ROOT/ -rf                //删除ROOT文件夹
 [root@Centos7 webapps2]# ls
 upload
-[root@Centos7 webapps2]# 
-
-[root@Centos7 webapps2]# rz
-                            // rz这个是传输命令，war包导出文件名一定要是shoptesting
+[root@Centos7 webapps2]# rz                          // rz这个是传输命令，war包导出文件名一定要是shoptesting，已经配置自动发布
 
 [root@Centos7 webapps2]# 
-[root@Centos7 webapps2]# service tomcat restart   // 重启tomcat
+[root@Centos7 webapps2]# ls
+shoptesting  shoptesting.war  upload
+[root@Centos7 webapps2]# service tomcat restart          //重启 会重新加载ROOT文件夹
 Redirecting to /bin/systemctl restart  tomcat.service
-[root@Centos7 webapps2]# ls  // 已经配置自动发布
-ROOT  shoptesting  shoptesting.war  upload
 
+[root@Centos7 webapps2]# 
+[root@Centos7 webapps2]# ls
+ROOT  shoptesting  shoptesting.war  upload
+[root@Centos7 webapps2]# 
 
 ```
