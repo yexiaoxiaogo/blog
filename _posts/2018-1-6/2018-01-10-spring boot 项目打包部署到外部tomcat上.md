@@ -158,8 +158,17 @@ ROOT  shoptesting  shoptesting.war  upload
 ROOT  shoptesting  upload
 [root@Centos7 webapps2]# ls
 ROOT  upload                                //已经做了配置，shoptesting会自动删除
+[root@Centos7 webapps2]# rm ROOT/ -rf
+[root@Centos7 webapps2]# ls
+upload
+[root@Centos7 webapps2]# 
+
 [root@Centos7 webapps2]# rz
                             // rz这个是传输命令，war包导出文件名一定要是shoptesting
+
+[root@Centos7 webapps2]# 
+[root@Centos7 webapps2]# service tomcat restart   // 重启tomcat
+Redirecting to /bin/systemctl restart  tomcat.service
 [root@Centos7 webapps2]# ls  // 已经配置自动发布
 ROOT  shoptesting  shoptesting.war  upload
 
